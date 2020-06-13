@@ -32,6 +32,7 @@ class Matrix{
 		}
 		
 		Matrix operator + (const Matrix &obj){
+			// Checks to see if matricies are the same size
 			if(rows != obj.rows || columns != obj.columns){
 				throw std::invalid_argument("Matricies are not of the same dimensions");
 			}
