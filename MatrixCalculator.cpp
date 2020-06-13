@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "matrix.h"
 
 int main(){
