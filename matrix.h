@@ -84,13 +84,7 @@ Matrix operator * (const Matrix &mtx, const double &obj){
 }
 		
 Matrix operator * (const double &obj, const Matrix &mtx){
-	Matrix result(mtx.matrix);
-	for(int i = 0; i < mtx.getRows(); i++){
-		for(int j = 0; j < mtx.getColumns(); j++){
-			result.matrix[i][j] *= obj;
-		}
-	}
-	return result;
+	return mtx * obj;
 }
 		
 Matrix operator * (const int &obj, const Matrix &mtx){
@@ -104,11 +98,5 @@ Matrix operator * (const int &obj, const Matrix &mtx){
 }
 		
 Matrix operator * (const Matrix &mtx, const int &obj){
-	Matrix result(mtx.matrix);
-	for(int i = 0; i < mtx.getRows(); i++){
-		for(int j = 0; j < mtx.getColumns(); j++){
-			result.matrix[i][j] *= obj;
-		}
-	}
-	return result;
+	return obj * mtx;
 }
