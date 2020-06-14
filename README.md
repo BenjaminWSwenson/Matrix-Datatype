@@ -5,4 +5,4 @@ I plan on adding more functionality as time goes on and to make a true matrix ca
 ## Currently Supported Operations
 * Matrix addition
 * Scalar multiplication
-* Matrix Multiplication
+* Matrix multiplication
