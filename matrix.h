@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <iomanip>
 
 class Matrix{
 	private:
@@ -22,7 +23,9 @@ class Matrix{
 			columns = matrix[0].size();
 		}
 		
-		void print(){
+		void print(int decimal){
+			std::cout << std::fixed;
+			std::cout << std::setprecision(decimal);
 			for(int i = 0; i < rows; i++){
 				for(int j = 0; j < columns; j++){
 					std::cout << matrix[i][j] << " ";

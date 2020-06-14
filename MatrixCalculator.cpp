@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include "matrix.h"
 
 int main(){
@@ -10,13 +9,13 @@ int main(){
 	Matrix V(v);
 	Matrix B(b);
 	
-	V.print();
+	V.print(5);
 	
 	std::cout << "\n";
 	
 	Matrix A = V + V;
 	
-	A.print();
+	A.print(5);
 	
 	// Should abort after this line, as V is 3x3 and B is 2x2
 	Matrix Q = V + B;
