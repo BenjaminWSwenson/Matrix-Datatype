@@ -9,13 +9,47 @@ int main(){
 	Matrix V(v);
 	Matrix B(b);
 	
-	V.print(5);
-	
-	std::cout << "\n";
-	
 	Matrix A = V + V;
 	
 	A.print(5);
+	
+	std::cout << "\n";
+	
+	Matrix C = B * 2.0;
+	
+	C.print(3);
+	
+	std::cout << "\n";
+	
+	C = B * 2;
+	
+	C.print(3);
+	
+	std::cout << "\n";
+	
+	C = 2.0 * B;
+	
+	C.print(3);
+	
+	std::cout << "\n";
+	
+	std::vector<std::vector<double>> u {{1, 2, 3}, {3, 2, 1}, {2, 1, 3}, {3, 1, 2}};
+	std::vector<std::vector<double>> w {{1, 2, 3}, {2, 3, 1}, {1, 3, 2}};
+	
+	Matrix U(u);
+	Matrix W(w);
+	
+	U.print(3);
+	
+	std::cout << "\n";
+	
+	W.print(3);
+	
+	std::cout << "\n";
+	
+	Matrix X = U * W;
+	
+	X.print(3);
 	
 	// Should abort after this line, as V is 3x3 and B is 2x2
 	Matrix Q = V + B;
