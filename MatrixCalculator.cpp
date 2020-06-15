@@ -51,6 +51,14 @@ int main(){
 	
 	X.print(3);
 	
+	std::cout << "\n";
+	
+	X = U.T();
+	
+	X.print(3);
+	
+	std::cout << "\n";
+	
 	// Should abort after this line, as V is 3x3 and B is 2x2
 	Matrix Q = V + B;
 

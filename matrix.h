@@ -60,7 +60,8 @@ class Matrix{
 			if(columns != obj.rows){
 				throw std::invalid_argument("Matrices are not of multipliable dimensions");
 			}
-			Matrix result(std::vector<std::vector<double>>(rows, std::vector<double>(obj.columns)));
+			Matrix result(std::vector<std::vector<double>>
+				(rows, std::vector<double>(obj.columns)));
 			for(int i = 0; i < rows; i++){
 				for(int j = 0; j < obj.columns; j++){
 					for(int k = 0; k < columns; k++){
@@ -70,6 +71,17 @@ class Matrix{
 			}
 			return result;
 		}
+		
+		Matrix T(){
+			Matrix result(std::vector<std::vector<double>> 
+				(columns, std::vector<double>(rows)));
+			for(int i = 0; i < rows; i++){
+				for(int j = 0; j < columns; j++){
+					result.matrix[j][i] = matrix[i][j];
+				}
+			}
+			return result;
+		} 
 };
 
 // Scalar * overloading functions defined outside of class to achieve communitivity
