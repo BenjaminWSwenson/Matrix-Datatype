@@ -17,6 +17,12 @@ int main(){
 	
 	std::cout << "\n";
 	
+	A = V - V;
+	
+	A.print(5);
+	
+	std::cout << "\n";
+	
 	Matrix C = B * 2.0;
 	
 	C.print(3);

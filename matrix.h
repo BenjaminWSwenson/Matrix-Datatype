@@ -55,6 +55,20 @@ class Matrix{
 			return result;
 		}
 		
+		Matrix operator - (const Matrix &obj){
+			// Checks to see if matricies are the same size
+			if(rows != obj.rows || columns != obj.columns){
+				throw std::invalid_argument("Matrices are not of the same dimensions");
+			}
+			Matrix result(matrix);
+			for(int i = 0; i < rows; i++){
+				for(int j = 0; j < columns; j++){
+					result.matrix[i][j] -= obj.matrix[i][j];
+				}
+			}
+			return result;
+		}
+		
 		Matrix operator * (const Matrix &obj){
 			// Checks to see if columns of first matrix match rows of th second
 			if(columns != obj.rows){
