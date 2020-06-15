@@ -2,6 +2,8 @@
 #include <vector>
 #include "matrix.h"
 
+// This file serves as a test file for the time being
+
 int main(){
 	std::vector<std::vector<double>> v{{1.1, 2.2, 3.3}, {4.4, 5.5, 6.6}, {7.7, 8.8, 9.9}};
 	std::vector<std::vector<double>> b{{1.0, 2.0}, {3.0, 4.0}};
