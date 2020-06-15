@@ -3,6 +3,7 @@ This is a simple class definition that derives a matrix datatype from the vector
 \
 I plan on adding more functionality as time goes on and to make a true matrix calculator.
 ## Currently Supported Operations
-* Matrix addition
+* Matrix addition/subtraction
 * Scalar multiplication
 * Matrix multiplication
+* Transpose
