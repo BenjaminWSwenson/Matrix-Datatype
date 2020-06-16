@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <iomanip>
 #include <atomic>
-#include <pthread.h>
 #include <thread>
 
 // Global variables for threading
@@ -121,7 +120,14 @@ class Matrix{
 				}
 			}
 			return result;
-		} 
+		}
+		
+		double det(){
+			if(rows != columns){
+				throw std::invalid_argument("Matrix is not square");
+			}
+			
+		}
 };
 
 // Scalar * overloading functions defined outside of class to achieve communitivity
