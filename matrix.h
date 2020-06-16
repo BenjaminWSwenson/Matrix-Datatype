@@ -91,6 +91,9 @@ class Matrix{
 		}
 		
 		Matrix operator * (const Matrix &obj){
+			if(columns != obj.rows){
+				throw std::invalid_argument("Matrices are not of multipliable dimensions");
+			}
 			multiResult = std::vector<std::vector<double>>
 				(rows, std::vector<double>(obj.columns));
 			multiSecond = obj.matrix;
