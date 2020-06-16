@@ -42,7 +42,7 @@ int main(){
 	std::cout << "\n";
 	
 	std::vector<std::vector<double>> u {{1, 2, 3}, {3, 2, 1}, {2, 1, 3}, {3, 1, 2}};
-	std::vector<std::vector<double>> w {{1, 2, 3}, {2, 3, 1}, {1, 3, 2}};
+	std::vector<std::vector<double>> w {{1, 2, 3}, {2, 4, 1}, {1, 3, 2}};
 	
 	Matrix U(u);
 	Matrix W(w);

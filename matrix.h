@@ -2,11 +2,32 @@
 #include <iostream>
 #include <stdexcept>
 #include <iomanip>
+#include <atomic>
+#include <pthread.h>
+#include <thread>
+
+// Global variables for threading
+std::vector<std::vector<double>> multiSecond;
+std::vector<std::vector<double>> multiResult;
+std::vector<std::vector<double>> multiFirst;
+std::atomic_int step_i(0);
+
 
 class Matrix{
 	private:
 		int rows;
 		int columns;
+		static void multi(){
+			int core = step_i++;
+			
+			for(int i = core; i < core + 1; i++){
+				for(int j = 0; j < multiSecond[0].size(); j++){
+					for(int k = 0; k < multiFirst[0].size(); k++){
+						multiResult[i][j] += multiFirst[i][k] * multiSecond[k][j];
+					}
+				}
+			}
+		}
 	public:
 		std::vector<std::vector<double>> matrix;
 		
@@ -70,20 +91,22 @@ class Matrix{
 		}
 		
 		Matrix operator * (const Matrix &obj){
-			// Checks to see if columns of first matrix match rows of th second
-			if(columns != obj.rows){
-				throw std::invalid_argument("Matrices are not of multipliable dimensions");
+			multiResult = std::vector<std::vector<double>>
+				(rows, std::vector<double>(obj.columns));
+			multiSecond = obj.matrix;
+			multiFirst = matrix;
+			std::vector<std::thread> threads(rows);
+			step_i = 0;
+			
+			for(int i = 0; i < rows; i++) { 
+				threads[i] = std::thread(multi);
 			}
-			Matrix result(std::vector<std::vector<double>>
-				(rows, std::vector<double>(obj.columns)));
-			for(int i = 0; i < rows; i++){
-				for(int j = 0; j < obj.columns; j++){
-					for(int k = 0; k < columns; k++){
-						result.matrix[i][j] += matrix[i][k] * obj.matrix[k][j];
-					}
-				}
+			
+			for(int i = 0; i < rows; i++){  
+				threads[i].join();
 			}
-			return result;
+			Matrix product(multiResult);
+			return product;
 		}
 		
 		Matrix T(){
