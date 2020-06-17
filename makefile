@@ -1,5 +1,5 @@
   CC = g++
-  CFLAGS = -Iheaders
+  CFLAGS = -Iinclude
   LDFLAGS = -std=c++11 -pthread
   TARGET = test
   
