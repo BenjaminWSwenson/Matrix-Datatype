@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <atomic>
 #include <thread>
-#include "Matrix.h"
+#include "Matrix.hpp"
 
 // Global variables for threading
 std::vector<std::vector<double>> multiSecond;

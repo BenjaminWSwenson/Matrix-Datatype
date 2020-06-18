@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Matrix.h"
+#include "Matrix.hpp"
 
 // This file serves as a test file for the time being
 
