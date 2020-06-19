@@ -20,7 +20,7 @@ class Matrix{
 		Matrix T();
 		double det();
 };
-
+Matrix I(int size);
 // Scalar * overloading functions defined outside of class to achieve communitivity
 Matrix operator * (const Matrix &mtx, const double &obj);
 Matrix operator * (const double &obj, const Matrix &mtx);	

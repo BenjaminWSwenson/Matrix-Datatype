@@ -67,8 +67,11 @@ int main(){
 	
 	std::cout << "\n";
 	
-	// Should abort after this line, as V is 3x3 and B is 2x2
-	Matrix Q = V + B;
+	Matrix P = I(5);
+	
+	P.print(1);
+	
+	std::cout << "\n";
 
 	return 0;
 }

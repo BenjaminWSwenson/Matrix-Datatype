@@ -114,6 +114,15 @@ double Matrix::det(){
 			
 }
 
+Matrix I(int size){
+	Matrix identity(std::vector<std::vector<double>>
+		(size, std::vector<double>(size)));
+	for(int i = 0; i < size; i++){
+		identity.matrix[i][i] = 1;
+	}
+	return identity;
+}
+
 Matrix operator * (const Matrix &mtx, const double &obj){
 	Matrix result(mtx.matrix);
 	for(int i = 0; i < mtx.getRows(); i++){
