@@ -7,3 +7,4 @@ I plan on adding more functionality as time goes on and to make a true matrix ca
 * Scalar multiplication
 * Matrix multiplication
 * Transpose
+* Create Identity Matrix
