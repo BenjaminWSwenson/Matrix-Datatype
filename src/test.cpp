@@ -72,6 +72,10 @@ int main(){
 	P.print(1);
 	
 	std::cout << "\n";
+	
+	double num = P[3][3];
+	
+	std::cout << num << "\n";
 
 	return 0;
 }

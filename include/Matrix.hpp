@@ -14,6 +14,7 @@ class Matrix{
 		int getRows() const{ return rows; }
 		int getColumns() const{ return columns; }
 		void print(int decimal);
+		std::vector<double> operator [] (int i);
 		Matrix operator + (const Matrix &ob);
 		Matrix operator - (const Matrix &obj);
 		Matrix operator * (const Matrix &obj);

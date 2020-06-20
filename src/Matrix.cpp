@@ -45,6 +45,10 @@ void Matrix::print(int decimal){
 		std::cout << "\n";
 	}
 }
+
+std::vector<double> Matrix::operator [] (int i){
+	return matrix[i];
+}
 		
 Matrix Matrix::operator + (const Matrix &obj){
 	// Checks to see if matricies are the same size
