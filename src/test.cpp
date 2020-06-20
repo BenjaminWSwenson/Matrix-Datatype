@@ -76,6 +76,10 @@ int main(){
 	double num = P[3][3];
 	
 	std::cout << num << "\n";
+	
+	num = B.det();
+
+	std::cout << num << "\n";
 
 	return 0;
 }

@@ -115,7 +115,16 @@ double Matrix::det(){
 	if(rows != columns){
 		throw std::invalid_argument("Matrix is not square");
 	}
-			
+	double result = 0;
+	if(rows == 2){
+		result = (matrix[0][0]*matrix[1][1]) - (matrix[0][1]*matrix[1][0]);
+	}
+	else if(rows == 3){
+		result = (matrix[0][0]*matrix[1][1]*matrix[2][2]) + (matrix[0][1]*matrix[1][2]*matrix[2][0])
+		+ (matrix[0][2]*matrix[1][0]*matrix[2][1]) - ((matrix[2][0]*matrix[1][1]*matrix[0][2]) +
+		(matrix[2][1]*matrix[1][2]*matrix[0][0]) + (matrix[2][2]*matrix[1][0]*matrix[0][1]));
+	}
+	return result;
 }
 
 Matrix I(int size){
