@@ -8,3 +8,5 @@ I plan on adding more functionality as time goes on and to make a true matrix ca
 * Matrix multiplication
 * Transpose
 * Create Identity Matrix
+* Row Echelon Form
+* Determinant
