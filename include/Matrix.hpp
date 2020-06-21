@@ -6,6 +6,7 @@ class Matrix{
 	private:
 		int rows;
 		int columns;
+		int detMulti;
 		static void multi();
 	public:
 		std::vector<std::vector<double>> matrix;
@@ -19,6 +20,7 @@ class Matrix{
 		Matrix operator - (const Matrix &obj);
 		Matrix operator * (const Matrix &obj);
 		Matrix T();
+		Matrix ref();
 		double det();
 };
 Matrix I(int size);
