@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <atomic>
 #include <thread>
+#include <cmath>
 #include "Matrix.hpp"
 
 // Global variables for threading
@@ -27,12 +28,14 @@ Matrix::Matrix(){
 	matrix = std::vector<std::vector<double>> {{}};
 	rows = 0;
 	columns = 0;
+	detMulti = 1;
 }
 		
 Matrix::Matrix(std::vector<std::vector<double>> input){
 	matrix = input;
 	rows = matrix.size();
 	columns = matrix[0].size();
+	detMulti = 1;
 }
 		
 void Matrix::print(int decimal){
@@ -110,6 +113,45 @@ Matrix Matrix::T(){
 	}
 	return result;
 }
+
+Matrix Matrix::ref(){
+	Matrix result(matrix);
+	int h = 0;
+	int k = 0;
+	while(h <= rows && k <= columns){
+		int i_max;
+		int max = -1;
+		for(int i = h; i < rows; i++){
+			if(std::abs(result.matrix[i][k]) > max){
+				max = std::abs(result.matrix[i][k]);
+				i_max = i;
+			}
+		}
+		if(std::abs(result.matrix[i_max][k]) <= 0.0000001){
+			k += 1;
+		}
+		else{
+			std::vector<double> temp;
+			temp = result.matrix[h];
+			result.matrix[h] = result.matrix[i_max];
+			result.matrix[i_max] = temp;
+			
+			result.detMulti *= -1;
+			
+			for(int i = h + 1; i < rows; i++){
+				double f = result.matrix[i][k] / result.matrix[h][k];
+				result.matrix[i][k] = 0;
+				
+				for(int j = k + 1; j < columns; j++){
+					result.matrix[i][j] -= result.matrix[h][j] * f;
+				}
+			}
+			h += 1;
+			k += 1;
+		}
+	}
+	return result;
+}
 		
 double Matrix::det(){
 	if(rows != columns){
@@ -123,6 +165,14 @@ double Matrix::det(){
 		result = (matrix[0][0]*matrix[1][1]*matrix[2][2]) + (matrix[0][1]*matrix[1][2]*matrix[2][0])
 		+ (matrix[0][2]*matrix[1][0]*matrix[2][1]) - ((matrix[2][0]*matrix[1][1]*matrix[0][2]) +
 		(matrix[2][1]*matrix[1][2]*matrix[0][0]) + (matrix[2][2]*matrix[1][0]*matrix[0][1]));
+	}
+	else{
+		Matrix reduced = this->ref();
+		result = 1;
+		for(int i = 0; i < rows; i++){
+			result *= reduced.matrix[i][i];
+		}
+		result *= detMulti;
 	}
 	return result;
 }
