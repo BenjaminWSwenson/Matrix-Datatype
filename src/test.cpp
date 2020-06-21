@@ -80,6 +80,28 @@ int main(){
 	num = B.det();
 
 	std::cout << num << "\n";
+	
+	std::cout << num << "\n";
+	
+	P = W.ref();
+	
+	P.print(3);
+	
+	std::cout << "\n";
+	
+	std::vector<std::vector<double>> y {{2, 3, 5, 3}, {1, 1, 7, 8}, {9, 4, 3, 5}, {2, 2, 2, 1}};
+	
+	Matrix Y(y);
+	
+	P = Y.ref();
+	
+	P.print(3);
+	
+	std::cout << "\n";
+	
+	num = Y.det();
+	
+	std::cout << num << "\n";
 
 	return 0;
 }
