@@ -127,7 +127,7 @@ Matrix Matrix::ref(){
 				i_max = i;
 			}
 		}
-		if(std::abs(result.matrix[i_max][k]) <= 0.0000001){
+		if(std::abs(result.matrix[i_max][k]) <= 0.000000001){
 			k += 1;
 		}
 		else{
